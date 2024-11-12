@@ -43,11 +43,11 @@ $authUrl = $googleClient->generateAuthLink();
         <br><br>
         <form action="/Ampera/autenticar" method="POST">
             <div class="floating-label-container">
-                <input type="text" name="login" placeholder=" " required/>
+                <input type="text" name="FirstName" placeholder=" " required/>
                 <label for="login">Login</label>
             </div>
             <div class="floating-label-container">
-                <input type="password" name="senha" placeholder=" " required/>
+                <input type="password" name="password" placeholder=" " required/>
                 <label for="senha">Senha</label>
             </div>
 

@@ -24,11 +24,11 @@
         <br><br>
         <form action="controller/cadastrar.php" method="POST" class="form_register" id="Formulario">
             <div class="floating-label-container">
-                <input type="text" name="login" placeholder=" " required/>
+                <input type="text" name="firstName" placeholder=" " required/>
                 <label for="login">Login</label>
             </div>
             <div class="floating-label-container">
-                <input type="text" name="nome" placeholder=" " required/>
+                <input type="text" name="lastName" placeholder=" " required/>
                 <label for="nome">Nome</label>
             </div>
             <div class="floating-label-container">
@@ -48,7 +48,7 @@
                 <label for="data_nascimento">Data de Nascimento</label>
             </div>
             <div class="floating-label-container">
-                <input type="password" name="senha" placeholder=" " required/>
+                <input type="password" name="password" placeholder=" " required/>
                 <label for="senha">Senha</label>
             </div>
 

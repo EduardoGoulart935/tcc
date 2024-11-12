@@ -12,7 +12,7 @@ abstract class Model
     {
         try {
             $connect = Connect::connect();
-            $prepare = $connect->prepare("select * from $this->table where $field = :$field");
+            $prepare = $connect->prepare("SELECT * FROM $this->table WHERE $field = :$field");
             $prepare->execute([
                 $field => $value,
             ]);

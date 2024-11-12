@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_perfil'])) {
 }
 $id_usuarios = $_SESSION['id_perfil'];
 
-$sql = "SELECT p.nome, p.email, p.contato, p.cpf_cnpj, p.data_nasc, p.foto_perfil, 
+$sql = "SELECT p.lastName, p.email, p.contato, p.cpf_cnpj, p.data_nasc, p.avatar, 
                e.cep, e.estado, e.cidade, e.bairro, e.rua, e.pais
         FROM perfil p
         LEFT JOIN endereco e ON p.id_endereco = e.id
@@ -52,9 +52,9 @@ if (!$perfil) {
     <form action="controller/atualizar_usuario.php" method="POST" enctype="multipart/form-data">
         <div class="container">
             <div class="section profile-image-section">
-                <img id="profileImage" src="/Ampera/imagens/<?= $perfil['foto_perfil']?>" alt="Imagem do Perfil">
+                <img id="profileImage" src="/Ampera/imagens/<?= $perfil['avatar']?>" alt="Imagem do Perfil">
                 <div class="profile-actions">
-                    <button type="button" class="atualizar" name="foto_perfil" onclick="triggerUpload()">Atualizar imagem de perfil</button>
+                    <button type="button" class="atualizar" name="avatar" onclick="triggerUpload()">Atualizar imagem de perfil</button>
                     <input type="file" id="uploadImage" accept="image/*" style="display: none;" onchange="previewImage(event)">
                     <p>A imagem deve estar em JPG, JPEG ou PNG, e não pode ter mais de 10 MB.</p>
                 </div>
@@ -81,7 +81,7 @@ if (!$perfil) {
                 <h2>Configurações de perfil</h2>
                 <p>Alterar detalhes de identificação da sua conta</p>
                 <label for="usuario">Usuário</label>
-                <input type="text" id="usuario" name="usuario" value="<?= htmlspecialchars($perfil['nome']) ?>">
+                <input type="text" id="usuario" name="usuario" value="<?= htmlspecialchars($perfil['lastName']) ?>">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" value="<?= htmlspecialchars($perfil['email']) ?>">
                 <label for="contato">Contato</label>

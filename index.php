@@ -2,11 +2,9 @@
 session_start();
 define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'] . '/Ampera/');
 
-$url = explode("/", $_SERVER['REQUEST_URI']); // Pega um array da URL
+$url = explode("/", $_SERVER['REQUEST_URI']);
 
-function validaLogin()
-{
-    // Se o usuário não estiver logado, redireciona para a página de login
+function validaLogin() {
     if (isset($_SESSION['autenticado'])) {
         header("Location: /Ampera/menu");
         exit();
@@ -16,22 +14,19 @@ function validaLogin()
     }
 }
 
-function VerificaSessao()
-{
+function VerificaSessao() {
     if (!isset($_SESSION['id_perfil'])) {
         header("Location: login");
     }
 }
 
-// Variável para controlar se o header/footer deve ser exibido
-$exibirHeaderFooter = isset($_SESSION['autenticado']) ||isset($_SESSION['cadastro1_completo']);
+$exibirHeaderFooter = isset($_SESSION['autenticado']) || isset($_SESSION['cadastro1_completo']);
 
-// Exibe o header se o usuário estiver autenticado e não estiver nas páginas de cadastro ou login
 if ($exibirHeaderFooter && !in_array($url[2], ['cadastro', 'cadastro1', 'login', 'autenticar'])) {
     require_once(ROOT_PATH . 'view/header.php');
 }
 
-if ($url[1] != "Ampera") { // Validações de URL
+if ($url[1] != "Ampera") {
     validaLogin();
     include 'view/login.php';
     exit;
@@ -39,7 +34,7 @@ if ($url[1] != "Ampera") { // Validações de URL
 
 if (!isset($url[2])) {
     validaLogin();
-    include 'view/login.php'; // Padrão, página de login
+    include 'view/login.php';
     exit;
 }
 
@@ -50,13 +45,9 @@ if (count($url) > 5) {
     }
 }
 
-// Chamadas das rotas
 switch ($url[2]) {
     case 'autenticar':
         include './controller/autenticar.php';
-        break;
-    case 'autenticarGoogle':
-        include './controller/autenticarGoogle.php';
         break;
     case 'login':
         include 'view/login.php';
@@ -78,7 +69,6 @@ switch ($url[2]) {
         include 'view/cadastro.php';
         break;
     case 'cadastro1':
-        // Verifica se o cadastro inicial foi feito antes de carregar o cadastro1
         if (isset($_SESSION['cadastro_completo'])) {
             include 'view/cadastro1.php';
         } else {
@@ -109,7 +99,6 @@ switch ($url[2]) {
         exit();
 }
 
-// Exibe o footer se o usuário estiver autenticado e não estiver nas páginas de cadastro ou login
 if ($exibirHeaderFooter && !in_array($url[2], ['cadastro', 'cadastro1', 'login', 'autenticar'])) {
     require_once(ROOT_PATH . 'view/footer.php');
 }

@@ -18,14 +18,15 @@ class GoogleClient
     }
 
     public function init()
-    {
-        $guzzleClient = new GuzzleClient(['curl' => [CURLOPT_SSL_VERIFYPEER => false]]);
-        $this->client->setHttpClient($guzzleClient);
-        $this->client->setAuthConfig('credentials.json');
-        $this->client->setRedirectUri('http://localhost');
-        $this->client->addScope('email');
-        $this->client->addScope('profile');
-    }
+{
+    $guzzleClient = new GuzzleClient(['curl' => [CURLOPT_SSL_VERIFYPEER => false]]);
+    $this->client->setHttpClient($guzzleClient);
+    $this->client->setAuthConfig('credentials.json');
+    $this->client->setRedirectUri('http://localhost/'); // Verifique o URI exato
+    $this->client->addScope('email');
+    $this->client->addScope('profile');
+}
+
 
     public function authorized()
     {
