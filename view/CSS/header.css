@@ -1,0 +1,39 @@
+nav {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif; 
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+nav .logo img {
+    width: 120px;
+}
+
+nav .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .user .menu {
+    display: flex;
+    gap: 15px;
+}
+
+nav .user .menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav .user .menu a:hover {
+    color: #007bff;
+}
+
+nav .user img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-left: 15px;
+}

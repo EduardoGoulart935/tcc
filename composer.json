@@ -1,0 +1,17 @@
+{
+    "name": "miranha/ampera",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EduardoGoulart935",
+            "email": "eduardotigoulart@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.18"
+    }
+}
